@@ -1,0 +1,12 @@
+*fq.gz
+*fastq.gz
+*fastq
+*fastq
+*fq
+*.txt
+*.bam
+*.gz
+output_extractor/
+*.cpgplot
+*.gff
+*.pdf

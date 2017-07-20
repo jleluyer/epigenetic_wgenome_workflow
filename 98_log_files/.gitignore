@@ -1,0 +1,9 @@
+*fq.gz
+*fastq.gz
+*fastq
+*fastq
+*fq
+*.log
+*.sh
+*_script
+log*

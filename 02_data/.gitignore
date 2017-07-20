@@ -1,0 +1,10 @@
+*fq.gz
+*fastq.gz
+*fastq
+*fastq
+*fq
+*.md5
+*.txt
+*.zip
+run_wget.sh
+*.csv
