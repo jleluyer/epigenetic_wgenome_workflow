@@ -43,7 +43,9 @@ git clone https://github.com/zwdzwd/biscuit
 
 **launch Biscuit**
 
-*To be added*
+```
+sbatch 00_scripts/02_biscuit.sh
+```
 
 ##### 4.2 Masking C-T polymorphism in the reference
 
