@@ -10,11 +10,19 @@ cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
 
 #variables
-GENOME="Coregonus_clupeaformis_SSscaffolds.fasta"
+GENOME="genome.fasta"
+GENOMEMSK="masked.genome.fasta"
 GENOME_FOLDER="04_reference"
 OUTPOUT_FOLDER="05_results"
-OUTPUT="genome.cpgcheck"
+OUTPUTGG="GG.CpGi"
+OUTPUTGGM="GGM.CpGi"
+OUTPUTTJ="TJ.CpGi"
 
+# Takai and Jones (Takai and Jones., 2002)
+cpgplot -sequence "$GENOME" -window 100 -minlen 500 -minoe 0.65 -minpc 55.0 -outfile "$OUTPOUT_FOLDER"/"$OUTPUTTJ".cpgplot -graph none -outfeat "$OUTPOUT_FOLDER"/"$OUTPUTTJ".gff
 
-#launch script
-cpgplot "$GENOME_FOLDER"/"$GENOME" -window 100 -minlen 200 -minoe 0.6 -minpc 50. -outfile "$OUTPOUT_FOLDER"/"$OUTPUT".cpgplot -graph none -outfeat "$OUTPOUT_FOLDER"/"$OUTPUT".gff
+# Gardiner-Garden approach (Gardiner-Garden et al., 1987)
+cpgplot -sequence "$GENOME" -window 100 -minlen 200 -minoe 0.6 -minpc 50.0 -outfile "$OUTPOUT_FOLDER"/"$OUTPUTGGM".cpgplot -graph none -outfeat "$OUTPOUT_FOLDER"/"$OUTPUTGGM".gff
+
+#Gardiner-Garden masked approach (Bock et al., 2007)
+cpgplot -sequence "$GENOMEMSK" -window 100 -minlen 200 -minoe 0.6 -minpc 50.0 -outfile "$OUTPOUT_FOLDER"/"$OUTPUTGGM".cpgplot -graph none -outfeat "$OUTPOUT_FOLDER"/"$OUTPUTGGM".gff
