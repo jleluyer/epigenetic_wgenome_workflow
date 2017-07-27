@@ -24,9 +24,8 @@ cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 #variables
 GENOME="genome.fasta"
 
-
 #stage 1
-#windowmasker -in $GENOME -mk_counts -out stat.file.wm.txt
+windowmasker -in $GENOME -mk_counts -out stat.file.wm.txt
 
 #stage 2
 windowmasker -in $GENOME -ustat stat.file.wm.txt -out masked_genome.fasta -outfmt 'fasta'
@@ -35,5 +34,5 @@ windowmasker -in $GENOME -ustat stat.file.wm.txt -out masked_genome.fasta -outfm
 perl -pe '/^[^>]/ and $_=~ s/[a-z]/N/g' masked_genome.fasta >maskedhard_genome.fasta
 
 #Clean up
-rm masked_genome.fasta
+#rm masked_genome.fasta
 rm stat.file.wm.txt
